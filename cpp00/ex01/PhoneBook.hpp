@@ -4,7 +4,8 @@
 # include "Contact.hpp"
 
 # define MAX_CONTACTS 8
-# define MAX_FIELD_LENGTH 10
+# define MIN_FIELD_LENGTH 10 // because of the longest word from first row (Last name) - dont change this
+# define FIELD_LENGTH 10
 
 class PhoneBook
 {
