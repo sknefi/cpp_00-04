@@ -1,9 +1,9 @@
-NAME = violence 
+NAME = harl 
 
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp Harl.cpp
 
 all: $(NAME)
 
