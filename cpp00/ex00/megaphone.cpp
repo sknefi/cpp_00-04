@@ -1,29 +1,20 @@
 #include <iostream>
 
-int	get_len(char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int	main(int argc, char *argv[])
 {
 	int		i;
 	int		j;
-	int		len_arg;
 
 	if (argc == 1)
-		return (EXIT_FAILURE);
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (EXIT_SUCCESS);
+	}
 	i = 1;
 	while (i < argc)
 	{
 		j = 0;
-		len_arg = get_len(argv[i]);
-		while (j < len_arg)
+		while (argv[i][j])
 		{
 			if ('a' <= argv[i][j] && argv[i][j] <= 'z')
 				std::cout << (char)(argv[i][j] - 32);
@@ -35,6 +26,6 @@ int	main(int argc, char *argv[])
 			std::cout << " ";
 		i++;
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 	return (EXIT_SUCCESS);
 }

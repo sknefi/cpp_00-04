@@ -126,8 +126,7 @@ void	PhoneBook::search(void) const
 	std::cout << "\nDisplaying user on Index: " << userInputIndex << std::endl;
 	std::cout << _contacts[userInputIndex].getFirstName() << std::endl;
 	std::cout << _contacts[userInputIndex].getLastName() << std::endl;
+	std::cout << _contacts[userInputIndex].getNickname() << std::endl;
 	std::cout << _contacts[userInputIndex].getPhoneNumber() << std::endl;
-	std::cout << _contacts[userInputIndex].getNickname() << std::endl;
-	std::cout << _contacts[userInputIndex].getNickname() << std::endl;
 	std::cout << _contacts[userInputIndex].getDarkestSecret() << std::endl << std::endl;
 }
