@@ -2,6 +2,7 @@
 # define WEAPON_HPP
 
 # include <iostream>
+# include <cstdlib>
 
 class Weapon
 {

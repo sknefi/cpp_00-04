@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include "Weapon.hpp"
+# include <cstdlib>
 
 class HumanB
 {

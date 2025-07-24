@@ -2,6 +2,7 @@
 # define HARL_CPP
 
 # include <iostream>
+# include <cstdlib>
 
 # define LEVELS_COUNT 4
 
