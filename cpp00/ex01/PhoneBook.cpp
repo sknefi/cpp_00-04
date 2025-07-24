@@ -1,6 +1,10 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) { }
+PhoneBook::PhoneBook(void):
+	_nextIndex(0),
+	_contactCount(0)
+{
+}
 
 PhoneBook::~PhoneBook(void) { }
 

@@ -4,7 +4,7 @@
 # include "Contact.hpp"
 
 # define MAX_CONTACTS 8
-# define MIN_FIELD_LENGTH 10 // because of the longest word from first row (Last name) - dont change this
+# define MIN_FIELD_LENGTH 10 // because of the longest word from first row (First name) - dont change this
 # define FIELD_LENGTH 10
 
 class PhoneBook
@@ -16,6 +16,7 @@ private:
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
+
 	void	addContact(void);
 	void	search(void) const;
 };
