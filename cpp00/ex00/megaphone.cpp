@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <cctype>
 
 int	main(int argc, char *argv[])
 {
@@ -17,14 +18,13 @@ int	main(int argc, char *argv[])
 		j = 0;
 		while (argv[i][j])
 		{
-			if ('a' <= argv[i][j] && argv[i][j] <= 'z')
-				std::cout << (char)(argv[i][j] - 32);
-			else
-				std::cout << argv[i][j];
+			std::cout << static_cast<char> (std::toupper(argv[i][j]));
 			j++;
 		}
+		/*
 		if (i != argc - 1)
 			std::cout << " ";
+		*/
 		i++;
 	}
 	std::cout << std::endl;
