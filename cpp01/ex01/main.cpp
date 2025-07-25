@@ -3,7 +3,7 @@
 # define N 		10
 # define NAME	"Beatles"
 
-int		main( void )
+int		main()
 {
 	int		i;
 	Zombie	*zHorde = zombieHorde(N, NAME);

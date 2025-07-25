@@ -14,8 +14,8 @@ public:
 	Zombie();
 	~Zombie();
 	
-	void	announce( void );
-	void	setName( std::string name );
+	void	announce();
+	void	setName( const std::string name );
 };
 
 Zombie	*zombieHorde( int N, std::string name );
