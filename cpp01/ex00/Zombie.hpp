@@ -11,8 +11,8 @@ private:
 	std::string	_name;
 
 public:
-	Zombie( const std::string &name ); // \p name should be const std::string &.
-	~Zombie(); // Ideally should be virtual (to prevent memleaks in case of inheritance).
+	Zombie( const std::string &name );
+	~Zombie();
 	
 	void	announce( void ); 
 };
