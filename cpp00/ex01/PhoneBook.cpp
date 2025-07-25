@@ -118,8 +118,8 @@ void	PhoneBook::search() const
 	{
 		std::cout << "Select Index from range: " << "[0-" << _contactCount - 1 << "]: ";
 		std::getline(std::cin, str);
-		userInputIndex = str[0] - '0'; // todo for max_contacts >9
-		if ((userInputIndex < 0 || userInputIndex > _contactCount - 1) && str != "") // this will work only for 0-9 contacts (subject OK)
+		userInputIndex = atoi(str.c_str());
+		if ((userInputIndex < 0 || userInputIndex > _contactCount - 1) && str != "")
 			std::cout << "Invalid Index" << std::endl;
 		else
 			break ;
