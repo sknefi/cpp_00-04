@@ -14,6 +14,7 @@ int		main( void )
 	harl.complain("ERROR");
 	std::cout << std::endl << "=====not_valid_LEVEL=====" << std::endl;
 	harl.complain("HIHI");
+	harl.complain("");
 
 	return (EXIT_SUCCESS);
 }
