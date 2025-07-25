@@ -5,7 +5,7 @@
 
 # define MAX_CONTACTS 8
 # define MIN_FIELD_LENGTH 10 // because of the longest word from first row (First name) - dont change this
-# define FIELD_LENGTH 11
+# define FIELD_LENGTH 10
 
 class PhoneBook
 {
