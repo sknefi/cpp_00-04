@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 
 static std::string	replaceLine( std::string line, std::string s1, std::string s2 )
 {
