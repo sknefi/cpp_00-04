@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-void	randomChump( void )
+void	randomChump()
 {
 	Zombie("Chuck Norris").announce();	
 }

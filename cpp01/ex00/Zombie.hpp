@@ -11,13 +11,13 @@ private:
 	std::string	_name;
 
 public:
-	Zombie( std::string name );
-	~Zombie();
+	Zombie( const std::string &name ); // \p name should be const std::string &.
+	~Zombie(); // Ideally should be virtual (to prevent memleaks in case of inheritance).
 	
-	void	announce( void ); 
+	void	announce(); 
 };
 
-void	randomChump( void );
-Zombie	*newZombie( std::string name );
+void	randomChump();
+Zombie	*newZombie( const std::string name );
 
 #endif
