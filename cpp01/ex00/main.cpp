@@ -6,7 +6,8 @@ int		main()
 	
 	zombie->announce();
 	delete(zombie);
-	randomChump();
+	
+	randomChump("Chuck Norris");
 
 	return (EXIT_SUCCESS);
 }
