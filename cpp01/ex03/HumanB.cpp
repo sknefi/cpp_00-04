@@ -1,14 +1,14 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB( std::string name ):
+HumanB::HumanB( const std::string &name ):
 	_name(name),
-	_weapon(nullptr)
+	_weapon(NULL)
 {
 };
 
 HumanB::~HumanB() { };
 
-void	HumanB::attack( void ) const
+void	HumanB::attack() const
 {
 	if (_weapon)
 		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;

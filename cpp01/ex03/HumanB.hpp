@@ -2,8 +2,8 @@
 # define HUMANB_HPP
 
 # include <iostream>
-# include "Weapon.hpp"
 # include <cstdlib>
+# include "Weapon.hpp"
 
 class HumanB
 {
@@ -12,10 +12,10 @@ private:
 	Weapon		*_weapon;
 
 public:
-	HumanB( std::string name );
+	HumanB( const std::string &name );
 	~HumanB();
 
-	void	attack( void ) const;
+	void	attack() const;
 	void	setWeapon( Weapon &weapon );
 	
 };
