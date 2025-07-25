@@ -1,14 +1,14 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void):
+PhoneBook::PhoneBook():
 	_nextIndex(0),
 	_contactCount(0)
 {
 }
 
-PhoneBook::~PhoneBook(void) { }
+PhoneBook::~PhoneBook() { }
 
-void	PhoneBook::addContact(void)
+void	PhoneBook::addContact()
 {
 	Contact		tempContact;
 	std::string	firstName = "";
@@ -17,44 +17,46 @@ void	PhoneBook::addContact(void)
 	std::string phoneNumber = "";
 	std::string	darkestSecret = "";
 
-	while (firstName == "" && !std::cin.eof())
+	while (firstName == "" && !std::cin.fail())
 	{
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, firstName);
 		tempContact.setFirstName(firstName);
 	}
 
-	while (lastName == "" && !std::cin.eof())
+	while (lastName == "" && !std::cin.fail())
 	{
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, lastName);
 		tempContact.setLastName(lastName);
 	}
 
-	while (nickName == "" && !std::cin.eof())
+	while (nickName == "" && !std::cin.fail())
 	{
 		std::cout << "Enter nickname: ";
 		std::getline(std::cin, nickName);
 		tempContact.setNickname(nickName);	
 	}
 
-	while (phoneNumber == "" && !std::cin.eof())
+	while (phoneNumber == "" && !std::cin.fail())
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, phoneNumber);
 		tempContact.setPhoneNumber(phoneNumber);
 	}
 
-	while (darkestSecret == "" && !std::cin.eof())
+	while (darkestSecret == "" && !std::cin.fail())
 	{
 		std::cout << "Enter your darkest secret: ";
 		std::getline(std::cin, darkestSecret);
 		tempContact.setDarkestSecret(darkestSecret);
 	}
-	
-	if (!std::cin.eof())
-		std::cout << "====== Registration completed ======" << std::endl;
+	if (std::cin.fail())
+	{
+		return;
+	}
 
+	std::cout << "====== Registration completed ======" << std::endl;
 	if (_nextIndex >= MAX_CONTACTS)
 	{
 		_nextIndex = 0;
@@ -83,7 +85,7 @@ static inline std::string	dash()
 	return (std::string(fieldLength, '-'));
 }
 
-void	PhoneBook::search(void) const
+void	PhoneBook::search() const
 {
 	int				i = 0;
 	int				userInputIndex;
@@ -112,7 +114,7 @@ void	PhoneBook::search(void) const
 	}
 
 	// asking for user input for contact index
-	while (str == "" && !std::cin.eof())
+	while (str == "" && !std::cin.fail())
 	{
 		std::cout << "Select Index from range: " << "[0-" << _contactCount - 1 << "]: ";
 		std::getline(std::cin, str);

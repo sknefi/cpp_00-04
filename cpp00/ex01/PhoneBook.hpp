@@ -14,11 +14,11 @@ private:
 	int		_contactCount;
 	Contact _contacts[MAX_CONTACTS];
 public:
-	PhoneBook(void);
-	~PhoneBook(void);
+	PhoneBook();
+	~PhoneBook();
 
-	void	addContact(void);
-	void	search(void) const;
+	void	addContact();
+	void	search() const;
 };
 
 #endif

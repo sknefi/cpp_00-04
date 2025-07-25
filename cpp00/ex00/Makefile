@@ -10,7 +10,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-	$(CPP) $(FLAGS) $(SRCS) -o $(NAME)
+	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
 	$(CPP) $(FLAGS) -c $< -o $@

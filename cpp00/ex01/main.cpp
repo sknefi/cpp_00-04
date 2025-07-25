@@ -1,13 +1,13 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int		main(void)
+int		main()
 {
 	PhoneBook	phoneBook;
 
 	while (1)
 	{
-		if (std::cin.eof())
+		if (std::cin.fail())
 			break ;
 		std::cout << "Enter command: ";
 		std::string	command;
@@ -20,7 +20,7 @@ int		main(void)
 			break ;
 		else
 		{
-			if (std::cin.eof())
+			if (std::cin.fail())
 				break ;			
 			std::cout << "Invalid command" << std::endl;
 		}
