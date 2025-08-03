@@ -27,7 +27,7 @@ Fixed::Fixed( const Fixed &other )
 	*this = other;
 }
 
-Fixed	&Fixed::operator=( const Fixed &other )
+Fixed	&Fixed::operator = ( const Fixed &other )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 
@@ -42,13 +42,94 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
+bool	Fixed::operator == ( const Fixed &x ) const
+{
+	return (_rawBits == x._rawBits);
+}
+
+bool	Fixed::operator != ( const Fixed &x ) const
+{
+	return (_rawBits != x._rawBits);
+}
+
+bool	Fixed::operator >= ( const Fixed &x ) const
+{
+	return (_rawBits >= x._rawBits);
+}
+
+bool	Fixed::operator <= ( const Fixed &x ) const
+{
+	return (_rawBits <= x._rawBits);
+}
+bool	Fixed::operator > ( const Fixed &x ) const
+{
+	return (_rawBits > x._rawBits);
+}
+
+bool	Fixed::operator < ( const Fixed &x ) const
+{
+	return (_rawBits < x._rawBits);
+}
+
+Fixed	Fixed::operator + ( const Fixed &x ) const
+{
+	return (Fixed(toFloat() + x.toFloat()));
+}
+
+Fixed	Fixed::operator - ( const Fixed &x ) const
+{
+	return (Fixed(toFloat() - x.toFloat()));
+}
+
+Fixed	Fixed::operator * ( const Fixed &x ) const
+{
+	return (Fixed(toFloat() * x.toFloat()));
+}
+
+Fixed	Fixed::operator / ( const Fixed &x ) const
+{
+	return (Fixed(toFloat() / x.toFloat()));
+}
+
+Fixed	&Fixed::operator ++ ()
+{
+	_rawBits++;
+	return (*this);
+}
+
+Fixed	&Fixed::operator -- ()
+{
+	_rawBits--;
+	return (*this);
+}
+
+Fixed	Fixed::operator ++ ( int )
+{
+	Fixed	temp = *this;
+	_rawBits++;
+	return (temp);
+}
+
+Fixed	Fixed::operator -- ( int )
+{
+	Fixed	temp = *this;
+	_rawBits--;
+	return (temp);
+}
+
+std::ostream	&operator << ( std::ostream &out, const Fixed &fixed )
+{
+	out << fixed.toFloat();
+	return (out);
+}
+
 int		Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (_rawBits);
 }
 
-void	Fixed::setRawBits( int const raw)
+void	Fixed::setRawBits( int const raw )
 {
 	_rawBits = raw;
 }
@@ -63,8 +144,22 @@ float	Fixed::toFloat( void ) const
 	return ((float)_rawBits / (float)(1 << _fracBits));
 }
 
-std::ostream	&operator<<( std::ostream &out, const Fixed &fixed )
+Fixed	&Fixed::min( Fixed &a, Fixed &b )
 {
-	out << fixed.toFloat();
-	return (out);
+	return (a < b ? a : b);
+}
+
+Fixed	&Fixed::max( Fixed &a, Fixed &b )
+{
+	return (a > b ? a : b);
+}
+
+const Fixed	&Fixed::min( const Fixed &a, const Fixed &b )
+{
+	return (a < b ? a : b);
+}
+
+const Fixed	&Fixed::max( const Fixed &a, const Fixed &b )
+{
+	return (a > b ? a : b);
 }
