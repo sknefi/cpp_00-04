@@ -1,26 +1,27 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int		main()
 {
 	// test ScavTrap
-	ScavTrap a("Alpha");
-	ScavTrap b("Beta");
+	FragTrap a("Alpha");
+	FragTrap b("Beta");
 
 	a.attack("Beta");
-	b.takeDamage(20);
+	b.takeDamage(30);
 
 	b.beRepaired(5);
 
 	for (int i = 0; i < 11; ++i)
 		a.attack("Dummy");
 
-	for (int i = 0; i < 5; ++i) // Beta should die here
-		b.takeDamage(20);
+	for (int i = 0; i < 4; ++i) // Beta should die here
+		b.takeDamage(30);
 
 	b.beRepaired(3);
 
-	a.guardGate();
+	a.highFivesGuys();
 
 	return (EXIT_SUCCESS);
 }
