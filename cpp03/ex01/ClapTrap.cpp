@@ -46,12 +46,12 @@ bool	ClapTrap::validStats( bool checkEnergy, bool checkHp )
 {
 	if (checkHp && _hp <= 0)
 	{
-		std::cout << "ClapTrap " << _name << " is dead." << std::endl;
+		std::cout << _name << " is dead." << std::endl;
 		return (false);
 	}
 	if (checkEnergy && _energy <= 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no energy left." << std::endl;
+		std::cout << _name << " has no energy left." << std::endl;
 		return (false);
 	}
 	return (true);
@@ -71,7 +71,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 	if (!validStats(false))
 		return ;
 	_hp -= amount;
-	std::cout << "ClapTrap " << _name << " is taking " << amount << " points of damage!" << std::endl;
+	std::cout << _name << " is taking " << amount << " points of damage!" << std::endl;
 
 }
 
