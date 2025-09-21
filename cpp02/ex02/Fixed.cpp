@@ -88,6 +88,8 @@ Fixed	Fixed::operator * ( const Fixed &x ) const
 
 Fixed	Fixed::operator / ( const Fixed &x ) const
 {
+	if (x.getRawBits() == 0)
+		throw std::runtime_error("Division by zero");
 	return (Fixed(toFloat() / x.toFloat()));
 }
 

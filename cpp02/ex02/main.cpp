@@ -80,6 +80,6 @@ int		main()
 	std::cout << "negative: " << negative << std::endl;
 	std::cout << "negative + zero: " << (negative + zero) << std::endl;
 	std::cout << "zero - negative: " << (zero - negative) << std::endl;
-	
+
 	return (EXIT_SUCCESS);
 }
