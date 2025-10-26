@@ -8,12 +8,12 @@
 class ClapTrap
 {
 protected:
-	std::string	_name;
-	int			_hp;
-	int			_energy;
-	int			_ad;
+	std::string		_name;
+	unsigned int	_hp;
+	unsigned int	_energy;
+	unsigned int	_ad;
 
-	bool	validStats( bool checkEnergy=true, bool checkHp=true );
+	bool	validStats( bool checkEnergy=true, bool checkHp=true ) const;
 
 public:
 	ClapTrap();

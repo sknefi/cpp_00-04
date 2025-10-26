@@ -42,16 +42,16 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor for " << _name << " called" << std::endl;
 }
 
-bool	ClapTrap::validStats( bool checkEnergy, bool checkHp )
+bool	ClapTrap::validStats( bool checkEnergy, bool checkHp ) const
 {
-	if (checkHp && _hp <= 0)
+	if (checkHp && _hp == 0)
 	{
-		std::cout << "ClapTrap " << _name << " is dead." << std::endl;
+		std::cout << "ClapTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return (false);
 	}
-	if (checkEnergy && _energy <= 0)
+	if (checkEnergy && _energy == 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no energy left." << std::endl;
+		std::cout << "ClapTrap " << _name << " can't act because it has no energy left." << std::endl;
 		return (false);
 	}
 	return (true);
@@ -70,7 +70,10 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (!validStats(false))
 		return ;
-	_hp -= amount;
+	if (amount >= _hp)
+		_hp = 0;
+	else
+		_hp -= amount;
 	std::cout << "ClapTrap " << _name << " is taking " << amount << " points of damage!" << std::endl;
 
 }
