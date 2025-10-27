@@ -46,5 +46,5 @@ int		main()
 	beta.beRepaired(10); // should fail because Beta is dead
 
 	std::cout << "\n=== End of main() ===\n";
-	return (EXIT_SUCCESS);
+	return (0);
 }

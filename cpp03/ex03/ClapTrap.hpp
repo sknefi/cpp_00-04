@@ -13,8 +13,6 @@ protected:
 	unsigned int	_energy;
 	unsigned int	_ad;
 
-	bool	validStats( bool checkEnergy=true, bool checkHp=true ) const;
-
 public:
 	ClapTrap();
 	ClapTrap( const std::string &name );
