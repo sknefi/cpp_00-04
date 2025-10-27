@@ -38,15 +38,26 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::attack( const std::string &target )
 {
-	if (!validStats())
+	if (_hp == 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
+	}
+	if (_energy == 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't act because it has no energy left." << std::endl;
+		return ;
+	}
 	_energy--;
 	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _ad << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
 {
-	if (!validStats(false))
+	if (_hp == 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
+	}
 	std::cout << "ScavTrap " << _name << " is now in Gate keeper mode." << std::endl;
 }

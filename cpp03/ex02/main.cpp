@@ -4,7 +4,6 @@
 
 int		main()
 {
-	// test ScavTrap
 	FragTrap a("Alpha");
 	FragTrap b("Beta");
 
@@ -23,5 +22,5 @@ int		main()
 
 	a.highFivesGuys();
 
-	return (EXIT_SUCCESS);
+	return (0);
 }

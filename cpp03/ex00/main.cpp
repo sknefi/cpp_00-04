@@ -16,5 +16,5 @@ int		main()
 	b.takeDamage(20);
 	b.beRepaired(3);
 
-	return (EXIT_SUCCESS);
+	return (0);
 }

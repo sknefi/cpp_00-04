@@ -3,7 +3,6 @@
 
 int		main()
 {
-	// test ScavTrap
 	ScavTrap a("Alpha");
 	ScavTrap b("Beta");
 
@@ -22,5 +21,5 @@ int		main()
 
 	a.guardGate();
 
-	return (EXIT_SUCCESS);
+	return (0);
 }

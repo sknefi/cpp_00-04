@@ -36,15 +36,26 @@ FragTrap::~FragTrap()
 
 void	FragTrap::attack( const std::string &target )
 {
-	if (!validStats())
+	if (_hp == 0)
+	{
+		std::cout << "FragTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
+	}
+	if (_energy == 0)
+	{
+		std::cout << "FragTrap " << _name << " can't act because it has no energy left." << std::endl;
+		return ;
+	}
 	_energy--;
 	std::cout << "FragTrap " << _name << " attacks " << target << ", causing " << _ad << " points of damage!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys( void )
 {
-	if (!validStats(false))
+	if (_hp == 0)
+	{
+		std::cout << "FragTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
+	}
 	std::cout << "FragTrap " << _name << " is requesting a high five!" << std::endl;
 }

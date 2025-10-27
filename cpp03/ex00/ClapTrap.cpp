@@ -42,34 +42,29 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor for " << _name << " called" << std::endl;
 }
 
-bool	ClapTrap::validStats( bool checkEnergy, bool checkHp ) const
-{
-	if (checkHp && _hp == 0)
-	{
-		std::cout << "ClapTrap " << _name << " can't act because it has no hit points left." << std::endl;
-		return (false);
-	}
-	if (checkEnergy && _energy == 0)
-	{
-		std::cout << "ClapTrap " << _name << " can't act because it has no energy left." << std::endl;
-		return (false);
-	}
-	return (true);
-}
-
 void	ClapTrap::attack( const std::string &target )
 {
-	if (!validStats())
+	if (_hp == 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
-	//ClapTrap <name> attacks <target>, causing <damage> points of damage!
+	}
+	if (_energy == 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't act because it has no energy left." << std::endl;
+		return ;
+	}
 	_energy--;
 	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _ad << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
-	if (!validStats(false))
+	if (_hp == 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
+	}
 	if (amount >= _hp)
 		_hp = 0;
 	else
@@ -80,8 +75,16 @@ void	ClapTrap::takeDamage( unsigned int amount )
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	if (!validStats())
+	if (_hp == 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't act because it has no hit points left." << std::endl;
 		return ;
+	}
+	if (_energy == 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't act because it has no energy left." << std::endl;
+		return ;
+	}
 	_hp += amount;
 	_energy--;
 	std::cout << "ClapTrap " << _name << " is being repaired for " << amount << " hp." << std::endl; 
