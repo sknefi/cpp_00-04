@@ -4,13 +4,21 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+#define COUNT 3
+
 int main()
 {
-	std::cout << "=== Polymorphic array test ===" << std::endl;
-	const size_t	count = 4;
-	Animal			*animals[count];
+	{
+		const	Animal *j = new Dog();
+		const	Animal *i = new Cat();
 
-	for (size_t i = 0; i < count; ++i)
+		delete j;
+		delete i;
+	}
+	std::cout << "=== Polymorphic array test ===" << std::endl;
+	Animal			*animals[COUNT];
+
+	for (size_t i = 0; i < COUNT; ++i)
 	{
 		if (i % 2 == 0)
 			animals[i] = new Dog();
@@ -19,14 +27,14 @@ int main()
 	}
 
 	std::cout << std::endl;
-	for (size_t i = 0; i < count; ++i)
+	for (size_t i = 0; i < COUNT; ++i)
 	{
 		std::cout << animals[i]->getType() << " makes sound: ";
 		animals[i]->makeSound();
 	}
 
 	std::cout << std::endl;
-	for (size_t i = 0; i < count; ++i)
+	for (size_t i = 0; i < COUNT; ++i)
 		delete animals[i];
 
 	std::cout << std::endl;
