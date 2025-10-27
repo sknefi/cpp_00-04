@@ -12,7 +12,7 @@ int main()
 
 	std::cout << std::endl;
 	std::cout << "Animal types:" << std::endl;
-	std::cout << "- meta: " << meta->getType() << std::endl;
+	std::cout << "- meta: " << meta->getType() << " sound " << std::endl;
 	std::cout << "- dog : " << dog->getType() << std::endl;
 	std::cout << "- cat : " << cat->getType() << std::endl;
 
@@ -24,12 +24,12 @@ int main()
 
 	std::cout << std::endl;
 	WrongAnimal wrongMeta;
-	WrongCat wrongKitty;
-	const WrongAnimal *wrongRef = &wrongKitty;
+	WrongCat wrongCat;
+	const WrongAnimal *wrongRef = &wrongCat;
 
 	std::cout << "WrongAnimal types:" << std::endl;
 	std::cout << "- wrongMeta : " << wrongMeta.getType() << std::endl;
-	std::cout << "- wrongKitty: " << wrongKitty.getType() << std::endl;
+	std::cout << "- wrongCat: " << wrongCat.getType() << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "WrongAnimal sounds (expect base implementation twice):" << std::endl;
@@ -41,5 +41,5 @@ int main()
 	delete dog;
 	delete cat;
 
-	return 0;
+	return (0);
 }
