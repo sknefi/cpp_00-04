@@ -5,6 +5,10 @@
 
 class Dog : public Animal
 {
+
+private:
+	Brain	*_brain;
+
 public:
 	Dog();
 	Dog( const Dog &src );
