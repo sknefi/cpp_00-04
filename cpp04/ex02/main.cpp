@@ -1,4 +1,4 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -9,14 +9,14 @@
 int main()
 {
 	{
-		const	Animal *j = new Dog();
-		const	Animal *i = new Cat();
+		const	AAnimal *j = new Dog();
+		const	AAnimal *i = new Cat();
 
 		delete j;
 		delete i;
 	}
 	std::cout << "=== Polymorphic array test ===" << std::endl;
-	Animal			*animals[COUNT];
+	AAnimal			*animals[COUNT];
 
 	for (size_t i = 0; i < COUNT; ++i)
 	{
