@@ -15,6 +15,8 @@ int main()
 		delete j;
 		delete i;
 	}
+
+	std::cout << std::endl;
 	std::cout << "=== Polymorphic array test ===" << std::endl;
 	AAnimal			*animals[COUNT];
 

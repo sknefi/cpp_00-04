@@ -1,17 +1,17 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() :
+	_brain(new Brain())
 {
 	std::cout << "Cat default constructor called." << std::endl;
 	_type = "Cat";
-	_brain = new Brain();
 }
 
-Cat::Cat( const Cat &src )
+Cat::Cat( const Cat &src ) :
+	AAnimal(src),
+	_brain(new Brain(*src._brain))
 {
 	std::cout << "Cat copy constructor called." << std::endl;
-	_brain = new Brain();
-	*this = src;
 }
 
 Cat::~Cat()
@@ -24,12 +24,11 @@ Cat	&Cat::operator = ( const Cat &src )
 {
 	if (this != &src)
 	{
-		_type = src._type;
-		// _brain = src._brain; // this is shallow copy
-		for (size_t i = 0; i < NUM_IDEAS; i++)
-			_brain->ideas[i] = src._brain->ideas[i];
+		AAnimal::operator=(src);
+		*_brain = *src._brain; // deep copy, copies every single idea from srcbrain to src
+		// _brain = src._brain; // this would be shallow copy
 	}
-	std::cout << "Cat asignment operator called." << std::endl;
+	std::cout << "Cat assignment operator called." << std::endl;
 	return (*this);
 }
 
