@@ -137,7 +137,15 @@ void	Character::equip( AMateria *m )
 	int empty_idx = find_empty_slot_idx();
 	if (empty_idx == -1)
 	{
-		std::cout << "No empty slot." << std::endl;
+		std::cout << "No empty slot. Dropping materia on the floor." << std::endl;
+		int floor_idx = find_empty_floor_idx();
+		if (floor_idx != -1)
+			_floor[floor_idx] = m;
+		else
+		{
+			std::cout << "Floor is full, deleting materia." << std::endl;
+			delete m;
+		}
 		return ;
 	}
 	_slot[empty_idx] = m;
