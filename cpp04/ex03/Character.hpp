@@ -18,6 +18,7 @@ private:
 	void	init_slots();
 	bool	is_idx_valid( int idx, bool display_err );
 	int		find_empty_slot();
+	void	clear_slots();
 
 public:
 	Character();

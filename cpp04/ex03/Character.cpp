@@ -3,7 +3,6 @@
 Character::Character() :
 	_name("Unnamed")
 {
-	std::cout << "Character default constructor called." << std::endl;
 	init_slots();
 }
 
@@ -16,7 +15,6 @@ Character::Character( const std::string &name ) :
 Character::Character( const Character &src ) :
 	_name(src._name)
 {
-	std::cout << "Character copy constructor called." << std::endl;
 	init_slots();
 	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
 	{
@@ -27,31 +25,15 @@ Character::Character( const Character &src ) :
 
 Character::~Character()
 {
-	std::cout << "Character destructor called." << std::endl;
-	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
-	{
-		if (_slot[i])
-		{
-			delete _slot[i];
-			_slot[i] = NULL;
-		}
-	}
+	clear_slots();
 }
 
 Character &Character::operator = ( const Character &src )
 {
-	std::cout << "Character copy assignment operator called." << std::endl;
 	if (this != &src)
 	{
+		clear_slots();
 		for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
-		{
-			if (_slot[i])
-			{
-				delete _slot[i];
-				_slot[i] = NULL;
-			}
-		}
-		for (size_t i = 0; i < SIZE_OF_SLOT; i++)
 		{
 			if (src._slot[i])
 				_slot[i] = src._slot[i]->clone();
@@ -82,9 +64,21 @@ bool	Character::is_idx_valid( int idx, bool display_err )
 	return (true);
 }
 
+void	Character::clear_slots()
+{
+	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
+	{
+		if (_slot[i])
+		{
+			delete _slot[i];
+			_slot[i] = NULL;
+		}
+	}
+}
+
 int		Character::find_empty_slot()
 {
-	for (size_t i = 0; i < SIZE_OF_SLOT; i++)
+	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
 	{
 		if (_slot[i] == NULL)
 			return (i);
@@ -98,7 +92,7 @@ void	Character::use( int idx, ICharacter &target )
 		return ;
 	if (!_slot[idx])
 	{
-		std::cout << "Slot " << idx << " is empty." << std::endl;
+		std::cout << "Slot " << idx << " is not empty, use another slot." << std::endl;
 		return ;
 	}
 	_slot[idx]->use(target);
@@ -125,10 +119,5 @@ void	Character::unequip( int idx )
 {
 	if (!is_idx_valid(idx, true))
 		return ;
-	if (!_slot[idx])
-	{
-		std::cout << "Slot " << idx << " is already empty." << std::endl;
-		return ;
-	}
 	_slot[idx] = NULL;
 }

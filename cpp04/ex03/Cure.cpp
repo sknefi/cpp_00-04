@@ -22,7 +22,7 @@ Cure	&Cure::operator = ( const Cure &src )
 	return (*this);
 }
 
-Cure		*Cure::clone() const
+Cure	*Cure::clone() const
 {
 	return (new Cure(*this));
 }
