@@ -15,7 +15,7 @@ Character::Character( const std::string &name ) :
 Character::Character( const Character &src ) :
 	_name(src._name)
 {
-	init_slots();
+	clear_slots();
 	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
 	{
 		if (src._slot[i])
@@ -49,7 +49,7 @@ std::string const	&Character::getName() const
 
 void	Character::init_slots()
 {
-	for (size_t i = 0; i < SIZE_OF_SLOT; i++)
+	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
 		_slot[i] = NULL;
 }
 
@@ -76,7 +76,7 @@ void	Character::clear_slots()
 	}
 }
 
-int		Character::find_empty_slot()
+int		Character::find_empty_slot_idx()
 {
 	for (size_t i = 0; i < SIZE_OF_SLOT; ++i)
 	{
@@ -106,7 +106,7 @@ void	Character::equip( AMateria *m)
 		return ;
 	}
 
-	int		empty_idx = find_empty_slot();
+	int		empty_idx = find_empty_slot_idx();
 	if (empty_idx == -1)
 	{
 		std::cout << "No empty slot" << std::endl;
